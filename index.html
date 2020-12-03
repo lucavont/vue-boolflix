@@ -30,19 +30,35 @@
 
 
     <div id="root" class="container-fluid">
-        <div :class="{display: loader}" id="loader" class="img-loader">
+        <!-- <div :class="{display: loader}" id="loader" class="img-loader">
             <img src="/img/boolflix.png" alt="">
-        </div>
-        <div class="row">
-            <div class="col-lg-8">
+        </div> -->
+        <div class="row searchBar">
+            <div class="col-lg-8 d-flex align-self-center">
                 <img class="logo" src="/img/boolflix.png" alt="">
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 d-flex align-items-center">
+                <!-- <label for="type">Scegli una tipologia:</label>
+                <select v-model="searchType" name="type" id="type">
+                <option value="films">Film</option>
+                <option value="series">Serie TV</option>
+                </select>
                 <input v-model="userSrcInput" type="text">
-                <button @click="search">Cerca</button>
+                <button class="btn btn-secondary" @click="selectType">Cerca</button> -->
+                <div class="input-group">
+                    <input v-model="userSrcInput" type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="Cerca..">
+                    <select v-model="searchType" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                      <option selected>Scegli una tipologia..</option>
+                      <option value="films">Film</option>
+                      <option value="series">Serie TV</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button @click="selectType" class="btn btn-outline-secondary" type="button">Button</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center content">
             <template v-for="movie in movies">
                 <div class="col-lg-3">
                     <div class="card" style="width: 18rem;">
@@ -51,10 +67,8 @@
                           <p class="card-text">{{movie.title}}</p>
                           <p class="card-text">{{movie.original_title}}</p>
                           <p class="card-text">{{movie.original_language}}</p>
-                          <p  v-for="n in calcStars(movie.vote_average)" class="card-text stars">
-                            <i class="fas fa-star"></i>
-                        </p>
-                   
+                            <p  v-for="index in 5" v-bind:class="calcStars(index, movie.vote_average)" class="card-text stars-full">
+                            </p>                 
                         </div>
                       </div>
                 </div>

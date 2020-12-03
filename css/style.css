@@ -1,8 +1,25 @@
+body {
+    background-color: black;
+}
+
 .card-text>i {
+    color: black
+}
+
+.searchBar {
+    background-color: #303030;
+    color: white;
+}
+
+.content {
+    background-color: black;
+}
+
+.starsYellow {
     color: yellow;
 }
 
-.stars {
+.stars-full {
     display: inline-block;
 }
 
