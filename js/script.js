@@ -5,7 +5,6 @@ const myApp = new Vue({
     data: {
         // loader: false,
         movies: [],
-        series: [],
         userSrcInput: "",
         searchType: "Scegli una tipologia..",
         path: 'https://image.tmdb.org/t/p/w500',

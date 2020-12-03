@@ -64,8 +64,8 @@
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" :src="path + movie.poster_path" alt="Card image cap">
                         <div class="card-body">
-                          <p class="card-text">{{movie.title}}</p>
-                          <p class="card-text">{{movie.original_title}}</p>
+                          <p class="card-text">{{movie.title}}{{movie.name}}</p>
+                          <p class="card-text">{{movie.original_title}}{{movie.original_name}}</p>
                           <p class="card-text">{{movie.original_language}}</p>
                             <p  v-for="index in 5" v-bind:class="calcStars(index, movie.vote_average)" class="card-text stars-full">
                             </p>                 
