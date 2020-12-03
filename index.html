@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <!-- Font Awesome 5.15.1 (CDN) -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
     <!-- jQuery 3.5.1 -->
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> -->
@@ -28,9 +28,15 @@
 
 <body>
 
+
     <div id="root" class="container-fluid">
+        <div :class="{display: loader}" id="loader" class="img-loader">
+            <img src="/img/boolflix.png" alt="">
+        </div>
         <div class="row">
-            <div class="col-lg-8"></div>
+            <div class="col-lg-8">
+                <img class="logo" src="/img/boolflix.png" alt="">
+            </div>
             <div class="col-lg-4">
                 <input v-model="userSrcInput" type="text">
                 <button @click="search">Cerca</button>
@@ -45,7 +51,10 @@
                           <p class="card-text">{{movie.title}}</p>
                           <p class="card-text">{{movie.original_title}}</p>
                           <p class="card-text">{{movie.original_language}}</p>
-                          <p class="card-text">{{movie.vote_average}}</p>
+                          <p  v-for="n in calcStars(movie.vote_average)" class="card-text stars">
+                            <i class="fas fa-star"></i>
+                        </p>
+                   
                         </div>
                       </div>
                 </div>

@@ -1,0 +1,33 @@
+.card-text>i {
+    color: yellow;
+}
+
+.stars {
+    display: inline-block;
+}
+
+.logo {
+    height: 50px;
+}
+
+.img-loader {
+    position: absolute;
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+}
+
+.img-loader img {
+    width: 50%;
+    height: 50%;
+    align-self: center;
+    animation: fade 1s;
+}
+
+.display {
+    display: none;
+    z-index: 0;
+}
