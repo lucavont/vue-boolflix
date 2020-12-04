@@ -5,6 +5,17 @@ const myApp = new Vue({
     data: {
         // loader: false,
         movies: [],
+        flags: {
+            EN: "img/england.png",
+            JA: "img/japan.png",
+            KO: "img/north-korea.png",
+            ES: "img/spain.png",
+            FR: "img/france.png",
+            IT: "img/italy.png",
+            HI: "img/india.png",
+            ZH: "img/china.png",
+            NULL: "img/null.png",
+        },
         userSrcInput: "",
         searchType: "Scegli una tipologia..",
         path: 'https://image.tmdb.org/t/p/w500',
@@ -37,6 +48,17 @@ const myApp = new Vue({
                         }
                     })
                     .then(r => this.movies = r.data.results)
+            }
+        },
+        flagSrc(language) {
+            if (language) {
+                language = language.toUpperCase()
+
+                if (language in this.flags) {
+                    return this.flags[language]
+                } else {
+                    return this.flags['NULL']
+                }
             }
         }
         //     loaderTimeout() {

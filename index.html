@@ -46,12 +46,12 @@
                 <input v-model="userSrcInput" type="text">
                 <button class="btn btn-secondary" @click="selectType">Cerca</button> -->
                 <div class="input-group">
-                    <input v-model="userSrcInput" type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="Cerca..">
-                    <select v-model="searchType" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-                      <option selected>Scegli una tipologia..</option>
-                      <option value="films">Film</option>
-                      <option value="series">Serie TV</option>
+                    <select @keyup.enter="selectType" v-model="searchType" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                        <option selected>Scegli una tipologia..</option>
+                        <option value="films">Film</option>
+                        <option value="series">Serie TV</option>
                     </select>
+                    <input @keyup.enter="selectType" v-model="userSrcInput" type="text" class="form-control" aria-label="Text input with segmented dropdown button" placeholder="Cerca..">
                     <div class="input-group-append">
                         <button @click="selectType" class="btn btn-outline-secondary" type="button">Vai</button>
                     </div>
@@ -61,14 +61,13 @@
         <div class="row justify-content-center content">
             <template v-for="movie in movies">
                 <div class="col-lg-3">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" :src="path + movie.poster_path" alt="Card image cap">
-                        <div class="card-body">
-                          <p class="card-text">{{movie.title}}{{movie.name}}</p>
-                          <p class="card-text">{{movie.original_title}}{{movie.original_name}}</p>
-                          <p class="card-text">{{movie.original_language}}</p>
-                            <p  v-for="index in 5" v-bind:class="calcStars(index, movie.vote_average)" class="card-text stars-full">
-                            </p>                 
+                    <div class="card my-card" style="width: 18rem;">
+                        <img class="card-img-top my-img" :src="path + movie.poster_path" alt="Card image cap">
+                        <div class="card-body mycard">
+                            <p class="card-text">{{movie.title}}{{movie.name}}</p>
+                            <p class="card-text">{{movie.original_title}}{{movie.original_name}}</p>
+                            <p class="card-text"><img class="flags" :src="flagSrc(movie.original_language)" alt=""></p>
+                            <p  v-for="index in 5" v-bind:class="calcStars(index, movie.vote_average)" class="card-text stars-full"></p>                 
                         </div>
                       </div>
                 </div>

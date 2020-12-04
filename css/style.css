@@ -48,3 +48,36 @@ body {
     display: none;
     z-index: 0;
 }
+
+.flags {
+    height: 30px;
+}
+
+.mycard {
+    opacity: 0;
+    position: absolute;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    height: 100%;
+    width: 100%;
+    color: white;
+    transition: 0.5s ease;
+}
+
+.my-card {
+    position: relative;
+}
+
+.my-img {
+    opacity: 1;
+    transition: 0.5s ease;
+}
+
+.my-card:hover .mycard {
+    display: block;
+    opacity: 1;
+}
+
+.my-card:hover .my-img {
+    opacity: 0.5;
+}
